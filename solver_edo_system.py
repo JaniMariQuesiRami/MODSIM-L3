@@ -19,20 +19,21 @@ def rk4_system(f, y0, t0, t_end, h):
 
 ### Ejemplo solver sistema edos:
 
-def system(t, y):
-    y1, y2 = y
-    dydt = np.array([y2, -y1])
-    return dydt
+if __name__ == "__main__":
+    def system(t, y):
+        y1, y2 = y
+        dydt = np.array([y2, -y1])
+        return dydt
 
-# Parámetros
-y0 = [0, 1]
-t0 = 0
-t_end = 2 * np.pi
-h = 0.1
+    # Parámetros
+    y0 = [0, 1]
+    t0 = 0
+    t_end = 2 * np.pi
+    h = 0.1
 
-# Resolviendo el sistema de EDOs
-t, y = rk4_system(system, y0, t0, t_end, h)
+    # Resolviendo el sistema de EDOs
+    t, y = rk4_system(system, y0, t0, t_end, h)
 
-# Mostrando los resultados
-for i in range(len(t)):
-    print(f"t = {t[i]:.2f}, y1 = {y[i,0]:.4f}, y2 = {y[i,1]:.4f}")
+    # Mostrando los resultados
+    for i in range(len(t)):
+        print(f"t = {t[i]:.2f}, y1 = {y[i,0]:.4f}, y2 = {y[i,1]:.4f}")

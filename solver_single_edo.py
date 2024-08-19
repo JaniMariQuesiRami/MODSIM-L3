@@ -22,21 +22,22 @@ def rk4_single(f, y0, t0, t_end, h):
     return t, y
 
 
-### Ejemplo solucionando solo una EDO
-def dydt(t, y):
-    return -2 * y
+if __name__ == "__main__":
+    ### Ejemplo solucionando solo una EDO
+    def dydt(t, y):
+        return -2 * y
 
-# Parámetros
-y0 = 1
-t0 = 0
-t_end = 2
-h = 0.1
+    # Parámetros
+    y0 = 1
+    t0 = 0
+    t_end = 2
+    h = 0.1
 
-# Resolviendo la EDO
-t, y = rk4_single(dydt, y0, t0, t_end, h)
+    # Resolviendo la EDO
+    t, y = rk4_single(dydt, y0, t0, t_end, h)
 
-# Mostrando los resultados
-for i in range(len(t)):
-    print(f"t = {t[i]:.2f}, y = {y[i]:.4f}")
+    # Mostrando los resultados
+    for i in range(len(t)):
+        print(f"t = {t[i]:.2f}, y = {y[i]:.4f}")
 
 
